@@ -66,9 +66,9 @@ export default function Home() {
       <form onSubmit={handleSubmit}>
         <input name="kws" placeholder="Кол-во kWs" value={form.kws} onChange={handleChange} />
         <input name="removedBacAcier" placeholder="Снято bac acier (м)" value={form.removedBacAcier} onChange={handleChange} />
-        <input name="leftBacAcier" placeholder="Оставлено bac acier (м)" value={form.leftBacAcier} onChange={handleChange} />
+        <input name="leftBacAcier" placeholder="Поставлено bac acier (м)" value={form.leftBacAcier} onChange={handleChange} />
         <input name="removedPanels" placeholder="Снято панелей (шт.)" value={form.removedPanels} onChange={handleChange} />
-        <input name="illeSurFace" placeholder="Ille sur face (м)" value={form.illeSurFace} onChange={handleChange} />
+        <input name="illeSurFace" placeholder="Fille sur face (м)" value={form.illeSurFace} onChange={handleChange} />
         <input name="acCable" placeholder="Протяжка AC кабеля (м)" value={form.acCable} onChange={handleChange} />
         <input name="actualDays" placeholder="Фактические дни" value={form.actualDays} onChange={handleChange} />
         <input name="people" placeholder="Кол-во людей" value={form.people} onChange={handleChange} />
