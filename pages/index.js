@@ -13,34 +13,49 @@ export default function Home() {
     notes: "",
   });
 
+  const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setResult("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setResult("");
 
-    const res = await fetch("/api/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-
-    if (res.ok) {
-      alert("Данные сохранены ✅");
-      setForm({
-        kws: "",
-        removedBacAcier: "",
-        leftBacAcier: "",
-        removedPanels: "",
-        illeSurFace: "",
-        acCable: "",
-        actualDays: "",
-        people: "",
-        notes: "",
+    try {
+      const res = await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
       });
-    } else {
-      alert("Ошибка сохранения ❌");
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setResult(`Данные сохранены ✅ Строка в таблице: ${data.row}`);
+
+        setForm({
+          kws: "",
+          removedBacAcier: "",
+          leftBacAcier: "",
+          removedPanels: "",
+          illeSurFace: "",
+          acCable: "",
+          actualDays: "",
+          people: "",
+          notes: "",
+        });
+      } else {
+        setResult("Ошибка сохранения ❌");
+      }
+    } catch (error) {
+      setResult("Ошибка отправки ❌");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,7 +75,11 @@ export default function Home() {
 
         <textarea name="notes" placeholder="Примечания" value={form.notes} onChange={handleChange} />
 
-        <button type="submit">Сохранить</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Сохранение..." : "Сохранить"}
+        </button>
+
+        {result && <p className="result">{result}</p>}
       </form>
 
       <style jsx>{`
@@ -102,6 +121,20 @@ export default function Home() {
           color: white;
           font-size: 16px;
           cursor: pointer;
+        }
+
+        button:disabled {
+          background: #9ca3af;
+          cursor: not-allowed;
+        }
+
+        .result {
+          margin-top: 8px;
+          padding: 12px;
+          border-radius: 8px;
+          background: #e8f7ee;
+          color: #166534;
+          font-weight: 600;
         }
       `}</style>
     </main>

@@ -12,14 +12,13 @@ export default async function handler(req, res) {
       body: JSON.stringify(req.body),
     });
 
-    const result = await response.text();
+    const text = await response.text();
+    const data = JSON.parse(text);
 
-    return res.status(200).json({
-      success: true,
-      result,
-    });
+    return res.status(200).json(data);
   } catch (error) {
     console.error(error);
+
     return res.status(500).json({
       success: false,
       error: error.message,
