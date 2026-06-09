@@ -36,7 +36,7 @@ export default function Home() {
       const data = await res.json();
 
       if (res.ok && data.success) {
-        setResult(`Данные сохранены ✅ Строка в таблице: ${data.row}`);
+        setResult(`Бонус бригады: ${data.bonusBrigade} | Бонус на человека: ${data.bonusPerson}`);
 
         setForm({
           kws: "",
