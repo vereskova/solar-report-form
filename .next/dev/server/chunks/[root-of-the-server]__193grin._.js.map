@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["file:///mnt/c/Users/Iryna/Desktop/feul-calcul/project/pages/api/submit.js"],"sourcesContent":["export default async function handler(req, res) {\r\n  if (req.method !== \"POST\") {\r\n    return res.status(405).json({ error: \"Method not allowed\" });\r\n  }\r\n\r\n  console.log(\"FORM DATA:\", req.body);\r\n\r\n  return res.status(200).json({ success: true });\r\n}"],"names":["handler","req","res","method","status","json","error","console","log","body","success"],"mappings":";;;;AAAe,eAAeA,QAAQC,GAAG,EAAEC,GAAG;IAC5C,IAAID,IAAIE,MAAM,KAAK,QAAQ;QACzB,OAAOD,IAAIE,MAAM,CAAC,KAAKC,IAAI,CAAC;YAAEC,OAAO;QAAqB;IAC5D;IAEAC,QAAQC,GAAG,CAAC,cAAcP,IAAIQ,IAAI;IAElC,OAAOP,IAAIE,MAAM,CAAC,KAAKC,IAAI,CAAC;QAAEK,SAAS;IAAK;AAC9C"}}]
+}

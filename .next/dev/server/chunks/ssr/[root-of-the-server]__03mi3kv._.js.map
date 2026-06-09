@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///mnt/c/Users/Iryna/Desktop/feul-calcul/project/pages/index.js"],"sourcesContent":["export default function Home() {\r\n  return (\r\n    <main style={{ padding: \"40px\" }}>\r\n      <h1>Rapport Chantier</h1>\r\n      <p>Форма работает ✅</p>\r\n    </main>\r\n  );\r\n}"],"names":["Home","style","padding"],"mappings":";;;;;;AAAe,SAASA;IACtB,qBACE,qKAAC;QAAKC,OAAO;YAAEC,SAAS;QAAO;;0BAC7B,qKAAC;0BAAG;;;;;;0BACJ,qKAAC;0BAAE;;;;;;;;;;;;AAGT"}}]
+}
